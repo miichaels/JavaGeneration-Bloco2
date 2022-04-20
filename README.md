@@ -1,3 +1,3 @@
-MySQL
+## MySQL
 
 Exercicios com MySQL
