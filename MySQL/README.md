@@ -1,3 +1,0 @@
-## MySQL
-
-Exercicios com MySQL
