@@ -1,11 +1,10 @@
-package com.famaco.farmaco.model;
+package com.games.mundogames.model;
 
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,19 +15,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 	@Entity // Faz o objeto virar uma table no BD
 	@Table(name = "tb_categoria") // Da o nome a tabela
 	public class CategoriaModel {
-
-	@Id
-	// Equivalente ao auto_increment no mysql
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@Id 
+	@GeneratedValue // Equivalente ao auto_increment no mysql
 	public Long id;
-
+	
 	@NotBlank // que o espaço nao pode ser null
 	public String descricao;
-
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoria")
-	private List<ProdutoModel> categoria;
+	// Um para muitos
+	@OneToMany (mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria") // Usado para nao mostrar a propriedade categoria
+	private List<ProdutoModel> produto;
 
 	public Long getId() {
 		return id;
@@ -46,12 +44,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 		this.descricao = descricao;
 	}
 
-	public List<ProdutoModel> getCategoria() {
-		return categoria;
+	public List<ProdutoModel> getProduto() {
+		return produto;
 	}
 
-	public void setCategoria(List<ProdutoModel> categoria) {
-		this.categoria = categoria;
+	public void setProduto(List<ProdutoModel> produto) {
+		this.produto = produto;
 	}
+
+	
+	
+	
 
 }
