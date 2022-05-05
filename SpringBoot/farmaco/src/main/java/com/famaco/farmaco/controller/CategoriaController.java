@@ -45,9 +45,9 @@ public class CategoriaController {
 		return ResponseEntity.ok(repository.findAllByDescricaoIgnoreCase(nome));
 	}
 	
-	@PostMapping
-	/* @Valid: valida todas as regras definidas na model*/
-	/*RequestBody: put e post*/
+	@PostMapping 
+	// @Valid: valida todas as regras definidas na model
+	//RequestBody: put e post
 	public ResponseEntity<CategoriaModel> postCategoriaModel(@Valid @RequestBody CategoriaModel categoria){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
 	}
@@ -61,7 +61,7 @@ public class CategoriaController {
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		repository.deleteById(id);
+		repository.deleteById(id); 
 	}
 }
 
