@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import com.games.mundogames.model.CategoriaModel;
 
-@Repository
+@Repository // informando para o spring que o CategoriaRepository é um repositorio
 public interface CategoriaRespository extends JpaRepository<CategoriaModel, Long>{
 	public List<CategoriaModel> findAllByDescricaoIgnoreCase (String descricao);
+	// Select * tb_categoria where descricao like "%descricao%"
 }

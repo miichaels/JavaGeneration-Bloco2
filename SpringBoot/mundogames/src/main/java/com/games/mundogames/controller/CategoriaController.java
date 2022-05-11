@@ -25,7 +25,7 @@ import com.games.mundogames.repository.CategoriaRespository;
 
 @RestController  // está informando que CategoriaController é o nosso controller
 @RequestMapping("/categoria") // definindo o caminho da rota, ou pagina
-@CrossOrigin("*") // // juntar front e back quando hospedado em sites diferentes)
+@CrossOrigin("*") // juntar front e back quando hospedado em sites diferentes
 public class CategoriaController {
 	
 	
